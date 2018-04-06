@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "module": "es2015",
+    "paths": {
+      "BpmnModeler": ["../node_modules/bpmn-js/lib/Modeler.js"],
+      "BpmnNavigatedViewer": ["../node_modules/bpmn-js/lib/NavigatedViewer.js"]
+    }
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ]
+}

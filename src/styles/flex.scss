@@ -1,0 +1,11 @@
+.flex-auto {
+  @include flex-auto;
+}
+
+.flex-row {
+  @include flex-row;
+}
+
+.flex-column {
+  @include flex-column;
+}

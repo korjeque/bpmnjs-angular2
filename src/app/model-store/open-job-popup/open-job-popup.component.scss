@@ -1,0 +1,38 @@
+@import "variables/_variables";
+@import "mixins/_mixins";
+
+
+app-open-job-popup {
+
+  .job-list {
+
+    @include flex-row;
+    @include flex-r-between;
+    @include flex-wrap;
+
+    .job-row {
+
+      border: 1px solid $panel-border-color;
+      border-radius: 4px;
+
+      padding: 20px;
+      width: 400px;
+      min-width: 400px;
+
+      margin-bottom: 12px;
+
+      &:hover, &.selected {
+        border-color: $hover-border-color;
+        background-color: $hover-color;
+        cursor: pointer;
+      }
+
+      .job-title {
+        font-weight: bold;
+
+      }
+
+    }
+
+  }
+}

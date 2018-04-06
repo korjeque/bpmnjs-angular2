@@ -1,0 +1,37 @@
+app-header
+
+
+.main-panel
+
+  .central-panel
+
+    .work-panel
+
+      .ribbon
+
+        .ribbon-tab-header-strip
+
+          .ribbon-tab-header(*ngFor="let document of getDocuments()",
+            [class.selected]="isSelected(document)", (click)="selectDocument(document)")
+
+            span.tab-text([innerText]="document.model.name")
+            span.tab-close((click)="closeDocument(document)")
+                i.fa.fa-close
+
+      //this holds all opened documents
+      .documents-panel
+
+        app-palette
+
+        //put here messages related to current document
+        .messages-panel
+
+        //put here all ng repeat for opened documents
+        app-job-modeler(*ngFor="let document of getDocuments()", [document]="document", [hidden]="!isSelected(document)")
+
+      app-bottom-panel
+
+
+  .resize-handler
+
+  app-tools-panel

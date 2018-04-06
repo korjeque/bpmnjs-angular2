@@ -1,0 +1,154 @@
+$background-color: $panel-background-color;
+$background-hover-color: $gray-300;
+$background-selected-color: $white;
+$border-color: $panel-border-color;
+$gradient-top-color: $white;
+$gradient-bottom-color: $gray-200;
+
+$tab-height: 60px;
+
+
+
+.ribbon {
+
+  @include flex-column;
+  background-color: $background-color;
+  border-bottom: 1px solid $border-color;
+
+  &:not(.inverted) {
+
+    .ribbon-tab-header-strip {
+      margin: 5px 0 0 4px;
+    }
+  }
+
+
+  .ribbon-tab-header-strip {
+
+    @include flex-row;
+    white-space: nowrap;
+
+    .ribbon-tab-header {
+
+      @include flex-row;
+      padding: 4px 16px;
+
+      &.selected,
+      &:hover {
+        margin: -1px -1px;
+        border: 1px solid $border-color;
+      }
+
+      &.selected {
+        background-color: $background-selected-color;
+        border-bottom: 1px solid $gradient-top-color;
+        z-index: 45;
+      }
+
+      &:not(.selected):hover {
+        background-color: $background-hover-color;
+        cursor: pointer;
+      }
+
+      .tab-text {
+        display: inline-block;
+        margin-right: $margin-xs;
+        max-width: 120px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      .tab-close {
+        display: inline-block;
+        padding: 0 $padding-xs;
+        margin-left: $margin-xs;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $red;
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .ribbon-tab {
+
+    @include flex-column;
+    @include flex-c-start;
+    @include flex-r-start;
+
+    flex-wrap: wrap;
+
+    padding: $padding-xs;
+    border: 1px solid $border-color;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from($gradient-top-color), to($gradient-bottom-color));
+
+    max-height: $tab-height;
+
+    .ribbon-button {
+
+      padding: $padding-xxs;
+      border-radius: 4px;
+      border: 1px solid;
+      text-align: center;
+
+      &:not(:first-child) {
+        margin-left: $margin-sm;
+      }
+
+      &:not(:last-child) {
+        margin-right: $margin-sm;
+      }
+
+      &.large {
+
+        @include flex-column;
+
+        max-width: 72px;
+        width: 72px;
+        height: $tab-height;
+
+        .button-icon {
+          font-size: 1.8em;
+        }
+      }
+
+      &:not(.large) {
+
+        @include flex-row;
+        max-width: 84px;
+        width: 84px;
+
+        //&:nth-child(even) {
+          margin-top: 3px;
+        // }
+
+        .button-icon {
+          margin-right: $margin-xs;
+        }
+      }
+
+      &:not(:hover) {
+        border-color: transparent;
+      }
+
+      &:hover {
+        border-color: $hover-border-color;
+        background-color: $hover-color;
+        cursor: pointer;
+      }
+
+    }
+
+    .ribbon-separator {
+      margin: 0 $margin-sm;
+      border-left: 1px solid $gradient-bottom-color;
+      border-right: 1px solid $gradient-top-color;
+      height: $tab-height;
+    }
+  }
+}
+

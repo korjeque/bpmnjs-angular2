@@ -1,0 +1,17 @@
+.ribbon
+
+    .ribbon-tab-header-strip
+
+      .ribbon-tab-header(*ngFor="let group of getGroups()", [class.selected]="isSelectedGroup(group)")
+        span.tab-text([innerText]="group.name")
+
+    .ribbon-tab(*ngFor="let group of getGroups()", [hidden]="!isSelectedGroup(group)")
+
+      ng-container(*ngFor="let btn of group.buttons | sortBy:'index'")
+
+        .ribbon-separator(*ngIf="btn.beginSeparator")
+
+        .ribbon-button([class.large]="btn.isLarge", (click)="btn.click()")
+          .button-icon
+              i(class="fa", [ngClass]="btn.icon")
+          span.tab-text([innerText]="btn.text")

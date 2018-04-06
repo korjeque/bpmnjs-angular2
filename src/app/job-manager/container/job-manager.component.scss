@@ -1,0 +1,54 @@
+@import "variables/_variables";
+@import "mixins/_mixins";
+
+
+app-job-manager {
+
+    @include flex-auto;
+    @include flex-column;
+
+    .main-panel
+    {
+        @include flex-auto;
+        @include flex-row;
+
+        .central-panel {
+
+            @include flex-auto;
+            @include flex-column;
+
+            .work-panel {
+
+                @include flex-auto;
+                @include flex-column;
+
+                .documents-panel {
+
+                    @include flex-auto;
+                    @include flex-column;
+                    position: relative;
+
+                    .document-panel {
+                        position: absolute;
+                        top: 0; left: 0; right: 0; bottom: 0;
+                    }
+
+                }
+
+            }
+
+            //bottom panel goes here
+
+        }
+
+
+        .resize-handler {
+            width: 6px;
+            background-color: $panel-border-color;
+            cursor: ew-resize;
+        }
+
+        //tools panel goes here
+
+    }
+}

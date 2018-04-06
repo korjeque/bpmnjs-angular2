@@ -1,0 +1,6 @@
+@import "mixins/_mixins";
+
+app-root {
+    @include flex-auto;
+    @include flex-column;
+}

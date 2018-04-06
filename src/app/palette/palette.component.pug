@@ -1,0 +1,15 @@
+.palette-container([hidden]="!isActive()", (dragstart)="onDragStart($event)")
+
+  .drag-handler(movable)
+
+  .palette-item(*ngFor="let tool of paletteTools", [ngClass]="{'active': tool.isActive() }", (click)="tool.click($event)",
+    attr.data-group="tools" /* this attr is required for bpmn tools manager */)
+    .palette-entry([ngClass]="tool.iconClassName")
+
+  .palette-item(*ngFor="let group of paletteGroups", [ngClass]="group.className")
+
+    .palette-item-description
+      | {{group.name}}&nbsp;
+
+    .palette-entry([ngClass]="group.default.iconClassName", style="position:relative",
+      [attr.data-action]="group.default.dataAction", draggable="true" )

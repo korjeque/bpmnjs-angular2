@@ -1,0 +1,25 @@
+@import "variables/_variables";
+@import "mixins/_mixins";
+
+
+app-job-modeler {
+
+  @include flex-auto;
+  @include flex-column;
+
+  background-color: white;
+  position: relative;
+
+  &>.data-panel {
+
+    @include flex-auto;
+    @include flex-column;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+}

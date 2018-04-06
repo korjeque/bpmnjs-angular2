@@ -1,0 +1,43 @@
+ngb-modal-window.flex-modal {
+
+  display: flex!important;
+  @include flex-auto;
+  @include flex-column;
+
+  .modal-dialog {
+
+    @include flex-auto;
+    @include flex-column;
+
+    @media (min-width: 576px) {
+      max-width: inherit;
+      width: 80%;
+    }
+
+    overflow: hidden;
+
+    .modal-content {
+      @include flex-auto;
+      @include flex-column;
+
+      & > * {
+        @include flex-auto;
+        @include flex-column;
+      }
+
+      .modal-body {
+
+        @include flex-column;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        padding: $padding-lg;
+
+      }
+
+    }
+  }
+
+
+}

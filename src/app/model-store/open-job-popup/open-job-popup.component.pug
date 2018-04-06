@@ -1,0 +1,16 @@
+.modal-header
+  h4.modal-title Open job
+  button.btn.btn-outline-dark(type="button", (click)="dismiss()") Close
+
+.modal-body.scrollbar-dynamic(appScroll)
+
+  .job-list
+
+    .job-row.btn.btn-primary(*ngFor="let job of jobs",
+      [class.selected]="isSelectedJob(job)", (click)="selectJob(job)", (dblclick)="openJob(job)")
+
+      .job-title([innerText]="job.name")
+
+
+.modal-footer
+  button.btn.btn-outline-dark(type="button", (click)="openJob()", [disabled]="!hasAnyJobSelected()") Open

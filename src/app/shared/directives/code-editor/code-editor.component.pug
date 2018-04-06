@@ -1,0 +1,16 @@
+.code-editor-container([class.with-toolbar]="showToolbar")
+
+  .code-editor-toolbar
+    form.flex-row
+      input.form-control.input-sm(type="text", placeholder="Type search terms and press enter")
+      button.btn.btn-primary.btn-sm(type="button", (click)="search()")
+        span &nbsp;
+        span Search
+      .btn.btn-primary.btn-sm((click)="toggleWrap()")
+        span &nbsp;
+        span Toggle wrap
+
+  .code-editor-outer
+    .code-editor-inner
+      ace-editor(#editor, [(text)]="text", [mode]="mode", [theme]="'chrome'", [readOnly]="readOnly", [autoUpdateContent]="true",
+        [durationBeforeCallback]="1000", style="height: 100%; width:100%; overflow: auto;")

@@ -1,0 +1,3 @@
+.data-panel(appContainerHost, (dragover)="onDragOver($event)")
+.data-panel(*ngIf="isXmlView()")
+  app-code-editor([text]="getXml()", [readOnly]="true", [showToolbar]="true", [mode]="'xml'")

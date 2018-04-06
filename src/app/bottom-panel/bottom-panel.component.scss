@@ -1,0 +1,8 @@
+@import "mixins/_mixins";
+@import "variables/_variables";
+
+app-bottom-panel {
+  @include flex-column;
+  border: 1px solid $panel-border-color;
+
+}

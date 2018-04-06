@@ -1,0 +1,6 @@
+.ribbon.inverted
+
+  .ribbon-tab-header-strip
+
+    .ribbon-tab-header(*ngFor="let button of getButtons()", [class.selected]="button.isActive()", (click)="button.click()")
+      span.tab-text([innerText]="button.title")

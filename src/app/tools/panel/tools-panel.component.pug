@@ -1,0 +1,14 @@
+
+.header
+
+    .ribbon
+
+        .ribbon-tab-header-strip
+
+            .ribbon-tab-header(*ngFor="let tool of getTools()", [class.selected]="isActiveTool(tool)", (click)="activateTool(tool)")
+                span.tab-text([innerText]="tool.title")
+
+.body
+
+  // dynamic panels go here
+  ng-template(appContainerHost)

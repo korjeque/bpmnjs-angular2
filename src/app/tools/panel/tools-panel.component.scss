@@ -1,0 +1,23 @@
+@import "variables/_variables";
+@import "mixins/_mixins";
+
+
+$tools-panel-width: 400px;
+
+app-tools-panel {
+
+    @include flex-column;
+
+    min-width: $tools-panel-width;
+
+    .header {
+        @include flex-column;
+
+    }
+
+    .body {
+        @include flex-auto;
+        @include flex-column;
+        padding: $panel-body-padding;
+    }
+}

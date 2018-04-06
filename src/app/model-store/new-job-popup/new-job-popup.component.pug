@@ -1,0 +1,18 @@
+.modal-header
+  h4.modal-title New job
+  button.btn.btn-outline-dark(type="button", (click)="dismiss()") Close
+
+.modal-body
+
+  form(#newJobForm="ngForm", (ngSubmit)="createJob()", novalidate="novalidate")
+
+    .form-group
+      label(for="name") Enter friendly job name
+      input#name.form-control(name="name", type="text", required,
+        [(ngModel)]="request.name", placeholder="Job name")
+
+    button.btn.btn-success(type="submit", [disabled]="!canCreateJob()") Create job
+
+    hr
+
+    .alert.alert-danger(role="alert", [innerText]="errorText", [hidden]="!errorText")
